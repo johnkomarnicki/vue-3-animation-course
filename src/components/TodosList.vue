@@ -1,13 +1,11 @@
 <template>
-  <transition name="todo-list" mode="out-in">
-    <transition-group tag="ul" name="todo" appear v-if="todos.length > 0">
-      <li v-for="todo in todos" :key="todo.id" class="todo">
-        <span>{{ todo.todo }}</span>
-        <i @click="$emit('remove-todo', todo)" class="fa-solid fa-xmark"></i>
-      </li>
-    </transition-group>
-    <p v-else>Awesome, you completed all your todos!</p>
-  </transition>
+  <ul v-if="todos.length > 0">
+    <li v-for="todo in todos" :key="todo.id" class="todo">
+      <span>{{ todo.todo }}</span>
+      <i @click="$emit('remove-todo', todo)" class="fa-solid fa-xmark"></i>
+    </li>
+  </ul>
+  <p v-else>Awesome, you completed all your todos!</p>
 </template>
 
 <script setup>
@@ -57,32 +55,5 @@ ul {
 p {
   margin-top: 24px;
   text-align: center;
-}
-
-.todo-enter-active,
-.todo-move {
-  transition: 0.4s ease all;
-}
-
-.todo-enter-from,
-.todo-leave-to {
-  opacity: 0;
-  transform: scale(0.6);
-}
-
-.todo-leave-active {
-  transition: 0.4s ease all;
-  position: absolute;
-}
-
-.todo-list-enter-active,
-.todo-list-leave-active {
-  transition: 0.4s ease all;
-}
-
-.todo-list-enter-from,
-.todo-list-leave-to {
-  transform: translateY(10px);
-  opacity: 0;
 }
 </style>

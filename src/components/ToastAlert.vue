@@ -1,11 +1,9 @@
 <template>
-  <transition name="toast">
-    <div v-if="showError" class="toast-alert-wrap">
-      <div class="toast-alert">
-        <span>Todo cannot be empty!</span>
-      </div>
+  <div v-if="showError" class="toast-alert-wrap">
+    <div class="toast-alert">
+      <span>Todo cannot be empty!</span>
     </div>
-  </transition>
+  </div>
 </template>
 
 <script setup>
@@ -28,41 +26,5 @@ defineProps({
     background-color: rgb(181, 4, 4);
     color: #fff;
   }
-}
-
-@keyframes shake {
-  0% {
-    transform: translateY(-100px);
-  }
-  50% {
-    transform: translateY(0);
-  }
-  60% {
-    transform: translateX(-6px);
-  }
-  70% {
-    transform: translateX(0px);
-  }
-  80% {
-    transform: translateX(6px);
-  }
-  90% {
-    transform: translateX(0px);
-  }
-  100% {
-    transform: translateX(-4px);
-  }
-}
-
-.toast-enter-active {
-  animation: shake 0.4s ease;
-}
-
-.toast-leave-active {
-  transition: 0.4s ease all;
-}
-
-.toast-leave-to {
-  transform: translateY(-100px);
 }
 </style>
